@@ -1,0 +1,12 @@
+Chappathi 20
+Parotta 15
+Idly 5
+Dosa 10
+Pongal 25
+Poori 15
+Meals 50
+Fried Rice 45
+Shawarma 40
+Pizza 80
+Burger 45
+	
