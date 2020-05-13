@@ -45,6 +45,7 @@ def load_food():
 def view_report():
         report = open('files/report.txt','r').read()
         print(report)
+        
 def view_cart():
         while 1:
                 print('\n'*5)
@@ -92,6 +93,7 @@ def payment(total):
                 print('\nTotal amount: Rs.',total)
                 print('\n'+'Payment Successful!!!\n')
                 report(total)
+                clear_data()
         else:
                 print('Cart is empty')
         main()
@@ -147,14 +149,18 @@ def report(total):
     report_data += '\t\t' + date.center(40,' ') + '\n' + '\t\t' + time.center(40,' ') + '\n' + '\t\t' + '-'*40 + '\n'
     
     for i,item in enumerate(ordered_list):
-        temp = '\t\t  ' + str(i+1) + ' '*5 +  item.name.center(20,' ') + 'Rs. '+str(item.price) + '\n'
+        temp = '\t\t  ' + str(i+1) + ' '*2 +  item.name.ljust(15,' ') + str(item.quantity) + ' x ' + str(item.price) + ' = ' + 'Rs. '+str(item.total) + '\n'
         report_data += temp
         
-    report_data += '\t\t' + '_'*40 + '\n' + '\t\t' + '  Total' + ' '*20 + str(total) + '\n\n'
+    report_data += '\t\t' + '_'*40 + '\n' + '\t\t' + '  Total' + ' '*20 + 'Rs. ' + str(total) + '\n\n'
     report_data += '\t\t' + '*'*40 + '\n\n'
 
     file.write(report_data)
 
+def clear_data():
+        global food_list, ordered_list
+        ordered_list = []
+        
 def exit_menu():
         print('\n'+'THANK YOU'.center(50,'*'))
         quit()
