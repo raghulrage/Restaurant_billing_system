@@ -61,17 +61,24 @@ def view_cart():
                         print('\tTotal    '+('Rs. '+str(total)).rjust(35,' '))
                         print('\n(M)Main Menu'+' '*3+'(R)Remove Item'+' '*3+'(O)Order Food'+'\n'+'(P)Payment'+' '*5+'(E)Exit')
                         print('_'*60+'\n')
+                        
                         option = input().upper()
+
                         if option == 'M':
                                 main()
+                                
                         elif option == 'P':
                                 payment(total)
+                                
                         elif option == 'E':
                                 exit_menu()
+                                
                         elif option == 'O':
                                 order_food()
+                                
                         elif option == 'R':
                                 remove_item()
+                                
                         else:
                                 print('Invalid option, Enter Again!!!')
 
@@ -113,12 +120,19 @@ def order_food():
                 print()
                 if food_id.isdigit():
                         if 0 < int(food_id) <= len(food_list):
-                                quantity = int(input('How many do you want to order : '))
+                                while True:
+                                    quantity = input('How many do you want to order(1-10) : ')
+                                    if quantity.isdigit() and 0<int(quantity)<=10:
+                                        quantity = int(quantity)
+                                        break
+                                    else:
+                                        print('\nEnter valid data!!!!\n')
                                 food = food_list[int(food_id)-1]
                                 for i,item in enumerate(ordered_list):
                                         if item.name == food.name:
                                                 print(ordered_list)
                                                 ordered_list[i].quantity+=quantity
+                                                ordered_list[i].total+=quantity*ordered_list[i].price
                                                 break
                                 else:
                                         ordered_list.append(Order(food.name,food.price,quantity))

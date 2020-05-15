@@ -9,4 +9,4 @@ Fried Rice 45
 Shawarma 40
 Pizza 80
 Burger 45
-	
+Biriyani 90
