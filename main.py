@@ -172,7 +172,7 @@ def report(total):
     file.write(report_data)
 
 def clear_data():
-        global food_list, ordered_list
+        global ordered_list
         ordered_list = []
         
 def exit_menu():
