@@ -40,7 +40,7 @@ def signup():
 
     
     with open("Users/user.json", "w") as file:  
-        json.dump(userDataFile, file)
+        json.dump(userDataFile, file,indent = 4)
         
     print('\n'+'*'*10+'Signup Successful'+'*'*10+'\n')
 
