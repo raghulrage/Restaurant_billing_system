@@ -17,7 +17,7 @@ class Order(Food):
                 Food.__init__(self,name,price)
 
 
-def main():
+def menu():
         while True:
                 print('\n'*5)
                 print(' MAIN MENU '.center(60,'*')+'\n\n\t(O)Order Food\n\t(C)View Cart\n\t(R)Report\n\t(E)Exit\n'+'_'*60+'\n')
@@ -179,6 +179,6 @@ def exit_menu():
         print('\n'+'THANK YOU'.center(50,'*'))
         quit()
 
-if __name__ == '__main__':
+def mainFn(username):
         load_food()
-        main()
+        menu()
