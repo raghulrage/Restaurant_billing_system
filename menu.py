@@ -1,6 +1,6 @@
-from main import *
 from datetime import datetime
 from pytz import timezone
+from report import *
 
 food_list = []
 ordered_list = []
@@ -103,7 +103,7 @@ def payment(total):
         if ordered_list:
                 print('\nTotal amount: Rs.',total)
                 print('\n'+'Payment Successful!!!\n')
-                report(total)
+                report(total,ordered_list,username)
                 clear_data()
         else:
                 print('Cart is empty')
@@ -151,35 +151,6 @@ def order_food():
                         menu()
                 else:
                         print('Invalid option, Enter Again!!!')
-
-def personalReport(reportData):
-    file = open('Report/'+username+'.txt','a')
-    file.write(reportData)
-    
-def report(total):
-
-    file = open('Files/report.txt','a')
-    report_data = '\n' + '\t\t' + '*'*40 + '\n'
-
-    now = datetime.now()
-    date = '-'.join(list(map(str,[now.day,now.month,now.year])))
-
-    now_utc = datetime.now(timezone('UTC'))
-    time = now_utc.astimezone(timezone('Asia/Kolkata'))
-    time = time.strftime("%I:%M:%S %p" )
-
-    report_data += '\t\t' + date.center(40,' ') + '\n' + '\t\t' + time.center(40,' ') + '\n' + '\t\t' + '-'*40 + '\n'
-    
-    for i,item in enumerate(ordered_list):
-        temp = '\t\t  ' + str(i+1) + ' '*2 +  item.name.ljust(15,' ') + str(item.quantity) + ' x ' + str(item.price) + ' = ' + 'Rs. '+str(item.total) + '\n'
-        report_data += temp
-        
-    report_data += '\t\t' + '_'*40 + '\n' + '\t\t' + '  Total' + ' '*20 + 'Rs. ' + str(total) + '\n\n'
-    report_data += '\t\t' + '*'*40 + '\n\n'
-    
-    file.write(report_data)
-
-    personalReport(report_data)
 
 def clear_data():
         global ordered_list

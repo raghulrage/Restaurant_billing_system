@@ -1,4 +1,5 @@
 from menu import *
+
 import json
 
 print('#'*10+' WELCOME '+'#'*10)
@@ -83,4 +84,9 @@ def main():
             signup()
         else:
             print('\nInvalid option, Enter again\n')
-main()
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as e:
+        print('Oops!',e.__class__,'error occured!!!')
+
