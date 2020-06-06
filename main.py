@@ -88,5 +88,7 @@ if __name__ == '__main__':
         main()
     except Exception as e:
         print('Oops!',e.__class__,'error occured!!!')
-
+        clear_data()
+        main()
+        
 

@@ -36,4 +36,6 @@ def report(total, ordered_list, username):
     
     file.write(report_data)
 
-    
+def view_report(username):
+        report = open('Report/'+username+'.txt','r').read()
+        print(report)
