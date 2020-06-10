@@ -34,11 +34,8 @@ def signup():
     
     f= open('Report/'+username+".txt","w+")
 
-    
-
     userDataFile[username] = userData
 
-    
     with open("Users/user.json", "w") as file:  
         json.dump(userDataFile, file,indent = 4)
         
