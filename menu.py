@@ -20,7 +20,7 @@ class Order(Food):
                 Food.__init__(self,name,price)
 
 def load_food():
-        food_items = open('files/food_list.txt','r')
+        food_items = open('Files/food_list.txt','r')
         for food in sorted(food_items):
                 food =  food.strip()
                 if food:
