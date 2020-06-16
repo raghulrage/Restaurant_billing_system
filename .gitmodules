@@ -1,0 +1,6 @@
+[submodule "Restaurant_billing_system"]
+	path = Restaurant_billing_system
+	url = https://github.com/raghulrage/Restaurant_billing_system
+[submodule "with_database"]
+	path = with_database
+	url = https://github.com/raghulrage/Restaurant_management_system_with-db
