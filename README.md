@@ -22,7 +22,7 @@ A console based application to signup/login, and order food.
 
 ## Project Flow:
 
-1. Create user
+1. Create account
 
 2. Login
 
